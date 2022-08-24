@@ -85,6 +85,7 @@ def allGP(client, message,redis):
         for v in rep.keys():
           tx = tx.replace(v,rep[v])
       else:
+      	    if rank != "admin":
         tx = r.IDnPT
       if not redis.sismember("{}Nbot:IDSendPH".format(BOT_ID),chatID):
         get = Bot("getUserProfilePhotos",{"user_id":userID,"offset":0,"limit":1})
