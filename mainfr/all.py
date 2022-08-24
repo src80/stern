@@ -72,7 +72,7 @@ def allGP(client, message,redis):
       chat = client.resolve_peer(chatID)
       full_chat = client.invoke(GetFullChannel(channel=chat)).full_chat
       Bot("sendMessage",{"chat_id":chatID,"text":r.gpinfo.format(message.chat.title,full_chat.participants_count,full_chat.admins_count,full_chat.kicked_count,full_chat.banned_count,message.id),"reply_to_message_id":message.id,"parse_mode":"html","disable_web_page_preview":True})
-      if rank != "admin":
+      
     if text == c.ID and not redis.sismember("{}Nbot:IDSend".format(BOT_ID),chatID) and not message.reply_to_message:
       Ch = True
       t = IDrank(redis,userID,chatID,r)
@@ -100,7 +100,7 @@ def allGP(client, message,redis):
           Bot("sendPhoto",{"chat_id":chatID,"photo":file_id,"caption":tx.format(username=("@"+username or "None"),id=userID,stast=t,msgs=msgs,edits=edits,age=age,rate=str(rate)+"%"),"reply_to_message_id":message.id,"parse_mode":"html"})
       if Ch == True:
         Bot("sendMessage",{"chat_id":chatID,"text":tx.format(username=("@"+username or "None"),id=userID,stast=t,msgs=msgs,edits=edits,age=age,rate=str(rate)+"%"),"reply_to_message_id":message.id,"parse_mode":"html"})
-
+if rank == "sudo" or rank == "asudo":
     if text == "رتبتي":
       t = IDrank(redis,userID,chatID,r)
       Bot("sendMessage",{"chat_id":chatID,"text":f"⏏️꒐ موقعك : {t}","reply_to_message_id":message.id,"parse_mode":"html"})
