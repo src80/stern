@@ -69,7 +69,7 @@ def updateHandlers(client, message,redis):
 							setrank(redis,"malk",userId,chatID,"one")
 					add = redis.sadd("{}Nbot:groups".format(BOT_ID),chatID)
 					Bot("exportChatInviteLink",{"chat_id":chatID})
-					kb = InlineKeyboardMarkup([[InlineKeyboardButton(r.MoreInfo, url="t.me/ald_source")]])
+					kb = InlineKeyboardMarkup([[InlineKeyboardButton(r.MoreInfo, url="t.me/GO_XXO")]])
 					Bot("sendMessage",{"chat_id":chatID,"text":r.doneadd.format(title),"reply_to_message_id":message.id,"parse_mode":"markdown","reply_markup":kb})
 					sendTO = (redis.get("{}Nbot:sudogp".format(BOT_ID)) or SUDO)
 					get = (redis.hget("{}Nbot:links".format(BOT_ID),chatID) or GetLink(chatID) or "https://t.me/ald_source")
@@ -165,7 +165,7 @@ def updateHandlers(client, message,redis):
 				Bot("sendMessage",{"chat_id":chatID,"text":r.sudostart,"reply_to_message_id":message.id,"parse_mode":"html","reply_markup":kb})
 				return 0
 			getbot = client.get_me()
-			kb = InlineKeyboardMarkup([[InlineKeyboardButton("قناة السورس ", url="t.me/ald_source")]])
+			kb = InlineKeyboardMarkup([[InlineKeyboardButton("قناة السورس ", url="t.me/GO_XXO")]])
 			Bot("sendMessage",{"chat_id":chatID,"text":r.botstart.format(getbot.first_name,getbot.username),"reply_to_message_id":message.id,"parse_mode":"html","reply_markup":kb})
 			
 		if text and re.search("^/start (.*)$",text):
